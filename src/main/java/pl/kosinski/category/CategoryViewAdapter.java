@@ -18,10 +18,10 @@ public class CategoryViewAdapter implements CategoryService{
         if (categoryDto.getId() != null) {
             category = categoryRepository.findById(categoryDto.getId()).get();
             category.setName(category.getName());
-            categoryRepository.save(category);
+            category = categoryRepository.save(category);
         } else {
             category.setName(categoryDto.getName());
-            categoryRepository.save(category);
+            category = categoryRepository.save(category);
         }
         return mapEntityToDto(category);
     }
