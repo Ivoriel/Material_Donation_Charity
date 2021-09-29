@@ -29,7 +29,7 @@ public class InstitutionViewAdapterTest {
         institution.setDescription("test_description");
         adapter.saveInstitution(institution);
         institution.setId(1L);
-        assertEquals(institution, adapter.readInstitution(1));
+        assertEquals(institution, adapter.findInstitution(1));
     }
 
     @Test
@@ -64,10 +64,10 @@ public class InstitutionViewAdapterTest {
         institution2.setDescription("test_description");
         adapter.saveInstitution(institution2);
         institution2.setId(2L);
-        assertEquals(institution1, adapter.readInstitution(1));
+        assertEquals(institution1, adapter.findInstitution(1));
         adapter.deleteInstitution(1);
-        assertEquals(institution2, adapter.readInstitution(2));
-        assertThrows(NoSuchElementException.class, () -> adapter.readInstitution(1));
+        assertEquals(institution2, adapter.findInstitution(2));
+        assertThrows(NoSuchElementException.class, () -> adapter.findInstitution(1));
 
     }
 

@@ -27,7 +27,7 @@ public class CategoryViewAdapter implements CategoryService{
     }
 
     @Override
-    public CategoryDto readCategory(long id) {
+    public CategoryDto findCategory(long id) {
         return mapEntityToDto(categoryRepository.findById(id).get());
     }
 

@@ -6,7 +6,7 @@ public interface CategoryService {
 
     CategoryDto saveCategory (CategoryDto categoryDto);
 
-    CategoryDto readCategory (long id);
+    CategoryDto findCategory(long id);
 
     List<CategoryDto> findAllCategories ();
 

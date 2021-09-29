@@ -31,7 +31,7 @@ public class CategoryViewAdapterTest {
         category.setName("test_category");
         adapter.saveCategory(category);
         category.setId(1L);
-        assertEquals(category, adapter.readCategory(1));
+        assertEquals(category, adapter.findCategory(1));
     }
 
     @Test
@@ -62,9 +62,9 @@ public class CategoryViewAdapterTest {
         category2.setName("test_2");
         adapter.saveCategory(category2);
         category2.setId(2L);
-        assertEquals(category1, adapter.readCategory(1));
+        assertEquals(category1, adapter.findCategory(1));
         adapter.deleteCategory(1);
-        assertEquals(category2, adapter.readCategory(2));
-        assertThrows(NoSuchElementException.class, () -> adapter.readCategory(category1.getId()));
+        assertEquals(category2, adapter.findCategory(2));
+        assertThrows(NoSuchElementException.class, () -> adapter.findCategory(category1.getId()));
     }
 }

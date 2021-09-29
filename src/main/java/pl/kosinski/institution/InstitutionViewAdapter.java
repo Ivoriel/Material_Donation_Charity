@@ -27,7 +27,7 @@ public class InstitutionViewAdapter implements InstitutionService {
     }
 
     @Override
-    public InstitutionDto readInstitution(long id) {
+    public InstitutionDto findInstitution(long id) {
         return mapEntityToDto(institutionRepository.findById(id).get());
     }
 

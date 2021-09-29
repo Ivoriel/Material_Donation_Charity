@@ -6,7 +6,7 @@ public interface InstitutionService {
 
     InstitutionDto saveInstitution(InstitutionDto institutionDto);
 
-    InstitutionDto readInstitution(long id);
+    InstitutionDto findInstitution(long id);
 
     void deleteInstitution(long id);
 
