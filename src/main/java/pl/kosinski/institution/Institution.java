@@ -22,4 +22,9 @@ public class Institution {
     @NotNull
     private String description;
 
+    public void setNameAndDescription(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
 }
