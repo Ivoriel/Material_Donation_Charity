@@ -46,6 +46,23 @@ public class InstitutionViewAdapter implements InstitutionService {
         institutionRepository.deleteById(id);
     }
 
+    @Override
+    public List<InstitutionDtoDouble> getDoubleInstitutions() {
+        List<InstitutionDtoDouble> doublesList = new ArrayList<>();
+        List<Institution> institutionList = institutionRepository.findAll();
+        for (int i = 0; i < institutionList.size(); i = i + 2) {
+            InstitutionDtoDouble dtoDouble = new InstitutionDtoDouble();
+            dtoDouble.setName1(institutionList.get(i).getName());
+            dtoDouble.setDescription1(institutionList.get(i).getDescription());
+            if (i+1 != institutionList.size()) {
+                dtoDouble.setName2(institutionList.get(i + 1).getName());
+                dtoDouble.setDescription2(institutionList.get(i + 1).getDescription());
+            }
+            doublesList.add(dtoDouble);
+        }
+        return doublesList;
+    }
+
     private InstitutionDto mapEntityToDto(Institution institution) {
         InstitutionDto institutionDto = new InstitutionDto();
         institutionDto.setId(institution.getId());

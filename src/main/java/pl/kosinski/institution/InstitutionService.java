@@ -12,4 +12,6 @@ public interface InstitutionService {
 
     List<InstitutionDto> findAll();
 
+    List<InstitutionDtoDouble> getDoubleInstitutions();
+
 }
