@@ -82,29 +82,22 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
-
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
+            <c:forEach var="institution" items="${doubleInstitutions}">
+                <li>
+                    <div class="col">
+                        <div class="title">Fundacja "${institution.name1}."</div>
+                        <div class="subtitle">Cel i misja: ${institution.description1}.</div>
+                    </div>
+                    <div class="col">
+                        <div class="title" <c:if test="${empty institution.name2}"> style="color:white" </c:if> >
+                            Fundacja "${institution.name2}."
+                        </div>
+                        <div class="subtitle" <c:if test="${empty institution.name2}"> style="color:white" </c:if> >
+                            Cel i misja: ${institution.description2}.
+                        </div>
+                    </div>
+                </li>
+            </c:forEach>
 
         </ul>
     </div>
