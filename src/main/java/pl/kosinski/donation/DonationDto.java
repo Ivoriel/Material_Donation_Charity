@@ -1,7 +1,7 @@
 package pl.kosinski.donation;
 
 import lombok.Data;
-import pl.kosinski.category.CategoryDto;
+import pl.kosinski.category.Category;
 import pl.kosinski.institution.Institution;
 
 import java.time.LocalDate;
@@ -14,7 +14,7 @@ public class DonationDto {
 
     private Long id;
     private int quantity;
-    private List<CategoryDto> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
     private Institution institution;
     private String street;
     private String city;
