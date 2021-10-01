@@ -48,7 +48,7 @@ public class InstitutionViewAdapterTest {
         adapter.saveInstitution(institution2);
         institution2.setId(2L);
         institutionList.add(institution2);
-        assertEquals(institutionList, adapter.findAll());
+        assertEquals(institutionList, adapter.findAllInstitutions());
     }
 
     @Test
