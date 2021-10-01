@@ -32,7 +32,7 @@ public class InstitutionViewAdapter implements InstitutionService {
     }
 
     @Override
-    public List<InstitutionDto> findAll() {
+    public List<InstitutionDto> findAllInstitutions() {
         List<Institution> institutionList = institutionRepository.findAll();
         List<InstitutionDto> institutionDtoList = new ArrayList<>();
         for (Institution institution : institutionList) {

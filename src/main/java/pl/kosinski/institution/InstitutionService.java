@@ -10,7 +10,7 @@ public interface InstitutionService {
 
     void deleteInstitution(long id);
 
-    List<InstitutionDto> findAll();
+    List<InstitutionDto> findAllInstitutions();
 
     List<InstitutionDtoDouble> getDoubleInstitutions();
 
