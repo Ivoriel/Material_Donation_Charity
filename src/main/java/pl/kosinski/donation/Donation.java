@@ -2,6 +2,7 @@ package pl.kosinski.donation;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.kosinski.category.Category;
 import pl.kosinski.institution.Institution;
 
@@ -35,6 +36,7 @@ public class Donation {
     @NotNull
     private String zipCode;
     @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
     @NotNull
     private LocalTime pickUpTime;
