@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:include page="../views/common/header.jsp"/>
+<jsp:include page="common/header_logged-out.jsp"/>
 
     <div class="slogan container container--90">
         <div class="slogan--item">
