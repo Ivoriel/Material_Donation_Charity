@@ -171,4 +171,20 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+
+  const hidden_categories = document.getElementsByName("_categories");
+  const hidden_institutions = document.getElementsByName("_institutions");
+
+  window.addEventListener("load", function() {
+    for (var i = hidden_categories.length - 1; i >= 0; i--) {
+      hidden_categories[i].remove();
+    }
+      console.log(hidden_categories);
+  });
+  window.addEventListener("load", function() {
+    for (var i = hidden_institutions.length - 1; i >= 0; i--) {
+      hidden_institutions[i].remove();
+    }
+    console.log(hidden_institutions);
+  });
 });
