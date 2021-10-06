@@ -52,25 +52,16 @@
     </div>
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
-        <form:form action="form-confirmation.html" method="post" modelAttribute="donation">
+        <form:form method="post" modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
 
-<%--                <form:checkboxes path="categories"--%>
-<%--                                 items="${categories}"  itemValue="id" itemLabel="name"--%>
-<%--                                 cssClass="form-group form-group--checkbox checkbox"/>--%>
-
                 <c:forEach items="${categories}" var="category">
                 <div class="form-group form-group--checkbox">
                     <label>
-<%--                        <input--%>
-<%--                                type="checkbox"--%>
-<%--                                name="categories"--%>
-<%--                                value="clothes-to-use"--%>
-<%--                        />--%>
-                        <form:checkbox path="categories" value="${category}" cssClass="checkbox"/>
-<%--                        <span class="checkbox"></span>--%>
+                        <form:checkbox path="categories" value="${category.id}"/>
+                        <span class="checkbox"></span>
                         <span class="description"
                         >${category.name}</span
                         >
@@ -89,9 +80,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-<%--                        <p>--%>
-                        <form:input path="quantity" step="1" min="1" />
-<%--                        </p>--%>
+                        <form:input path="quantity" type="number" step="1" min="1" id="bags" />
                     </label>
                 </div>
 
@@ -109,7 +98,7 @@
 
                 <div class="form-group form-group--checkbox">
 
-                    <form:radiobuttons path="institution" items="${institutions}" itemValue="id" itemLabel="name" cssClass="radio"/>
+                    <form:select path="institution" items="${institutions}" itemValue="id" itemLabel="name" cssClass="selecting" id="institution"/>
 
                 </div>
                 <div class="form-group form-group--buttons">
@@ -126,16 +115,16 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" /> </label>
+                            <label> Ulica <form:input path="street" id="street" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" /> </label>
+                            <label> Miasto <form:input path="city" id="city" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode" />
+                                Kod pocztowy <form:input path="zipCode" id="zipCode" />
                             </label>
                         </div>
 
@@ -144,17 +133,17 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input path="pickUpDate" /> </label>
+                            <label> Data <form:input path="pickUpDate" type="date" pattern="yyyy-MM-dd" id="pickUpDate" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input path="pickUpTime" /> </label>
+                            <label> Godzina <form:input path="pickUpTime" type="time" id="pickUpTime" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpComment" rows="5"></form:textarea>
+                                <form:textarea path="pickUpComment" rows="5" id="pickUpComment"/>
                             </label>
                         </div>
                     </div>
@@ -175,15 +164,20 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
+                                <span class="summary--text" name="bags_declared"></span>
+                                &nbsp
                                 <span class="summary--text"
-                                >${donation.quantity} worki ubrań w dobrym stanie dla dzieci</span
+                                >worki ubrań w dobrym stanie dla dzieci</span
                                 >
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji "${donation.institution.name}" w Warszawie</span
+                                >Dla fundacji "</span>
+                                <span id="institution_declared" class="summary--text"></span>
+                                <span class="summary--text"
+                                >" w Warszawie</span
                                 >
                             </li>
                         </ul>
@@ -193,18 +187,18 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>${donation.street}</li>
-                                <li>${donation.city}</li>
-                                <li>${donation.zipCode}</li>
+                                <li id="street_declared"></li>
+                                <li id="city_declared"></li>
+                                <li id="zipCode_declared"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>${donation.pickUpDate}</li>
-                                <li>${donation.pickUpTime}</li>
-                                <li>${donation.pickUpComment}</li>
+                                <li id="pickUpDate_declared"></li>
+                                <li id="pickUpTime_declared"></li>
+                                <li id="pickUpComment_declared"></li>
                             </ul>
                         </div>
                     </div>
