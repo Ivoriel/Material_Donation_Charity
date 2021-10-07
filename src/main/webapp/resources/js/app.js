@@ -91,6 +91,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  const bags = document.getElementsByName("bags_declared").item(0);
+  const institution = document.getElementById("institution_declared");
+  const street = document.getElementById("street_declared");
+  const city = document.getElementById("city_declared");
+  const zipCode = document.getElementById("zipCode_declared");
+  const pickUpDate = document.getElementById("pickUpDate_declared");
+  const pickUpTime = document.getElementById("pickUpTime_declared");
+  const pickUpComment = document.getElementById("pickUpComment_declared");
+
   /**
    * Switching between form steps
    */
@@ -143,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$form.querySelector("form").addEventListener("submit", e => this.submit(e));
     }
 
+
     /**
      * Update form front-end
      * Show next or previous section etc.
@@ -164,6 +174,16 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+
+      bags.textContent=document.querySelector("#bags").value;
+      institution.textContent=document.querySelector("#institution").options[document.querySelector("#institution").selectedIndex].text;
+      street.textContent=document.querySelector("#street").value;
+      city.textContent=document.querySelector("#city").value;
+      zipCode.textContent=document.querySelector("#zipCode").value;
+      pickUpDate.textContent=document.querySelector("#pickUpDate").value;
+      pickUpTime.textContent=document.querySelector("#pickUpTime").value;
+      pickUpComment.textContent=document.querySelector("#pickUpComment").value;
+
     }
 
   }
@@ -187,4 +207,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     console.log(hidden_institutions);
   });
+
 });
