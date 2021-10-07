@@ -1,6 +1,7 @@
 package pl.kosinski.donation;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DonationViewAdapter implements DonationService {
 
+    @Autowired
     private DonationRepository donationRepository;
 
     @Override
@@ -50,6 +52,16 @@ public class DonationViewAdapter implements DonationService {
         donationRepository.deleteById(id);
     }
 
+    @Override
+    public Integer quantityOfDonations() {
+        return donationRepository.countDistinctDonationsById();
+    }
+
+    @Override
+    public Integer quantityOfDonatedBags() {
+        return donationRepository.sumQuantity();
+    }
+
     private DonationDto mapEntityToDto(Donation donation) {
         DonationDto donationDto = new DonationDto();
         donationDto.setId(donation.getId());
@@ -64,4 +76,5 @@ public class DonationViewAdapter implements DonationService {
         donationDto.setPickUpComment(donation.getPickUpComment());
         return donationDto;
     }
+
 }

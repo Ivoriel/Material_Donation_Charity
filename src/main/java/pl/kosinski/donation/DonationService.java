@@ -12,4 +12,7 @@ public interface DonationService {
 
     void deleteDonation (long id);
 
+    Integer quantityOfDonations();
+
+    Integer quantityOfDonatedBags();
 }
