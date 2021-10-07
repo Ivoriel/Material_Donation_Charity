@@ -7,8 +7,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import pl.kosinski.category.Category;
-import pl.kosinski.category.CategoryDto;
-import pl.kosinski.institution.Institution;
 import pl.kosinski.institution.InstitutionDto;
 import pl.kosinski.institution.InstitutionRepository;
 import pl.kosinski.institution.InstitutionViewAdapter;
@@ -20,7 +18,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
