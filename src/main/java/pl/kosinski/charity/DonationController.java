@@ -34,12 +34,12 @@ public class DonationController {
     }
 
     @PostMapping("/add")
-    public String addDonation(@Valid DonationDto donationDto, BindingResult result) {
+    public String addDonation(@Valid @ModelAttribute("donation") DonationDto donationDto, BindingResult result) {
         if (result.hasErrors()) {
             return "/donation/form";
         }
         donationDto = donationService.saveDonation(donationDto);
-        return "/donation/confirmation";
+        return "/donation/form-confirmation";
     }
 
     @ModelAttribute("categories")
