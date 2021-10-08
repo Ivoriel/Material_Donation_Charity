@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // TODO: get data from inputs and show them in summary
 
       bags.textContent=document.querySelector("#bags").value;
-      institution.textContent=document.querySelector("#institution").options[document.querySelector("#institution").selectedIndex].text;
+      var selected_institutions =  document.querySelectorAll("#institution");
       street.textContent=document.querySelector("#street").value;
       city.textContent=document.querySelector("#city").value;
       zipCode.textContent=document.querySelector("#zipCode").value;
@@ -184,6 +184,13 @@ document.addEventListener("DOMContentLoaded", function() {
       pickUpTime.textContent=document.querySelector("#pickUpTime").value;
       pickUpComment.textContent=document.querySelector("#pickUpComment").value;
 
+      selected_institutions.forEach((element) => {
+        if (element.checked === true) {
+          institution.textContent = element.dataset.name;
+        }
+      })
+
+      console.log(selected_institutions);
     }
 
   }
@@ -205,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (var i = hidden_institutions.length - 1; i >= 0; i--) {
       hidden_institutions[i].remove();
     }
+    console.log(hidden_categories);
     console.log(hidden_institutions);
   });
 
