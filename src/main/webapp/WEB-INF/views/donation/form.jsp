@@ -96,11 +96,20 @@
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
+                <c:forEach items="${institutions}" var="institution">
                 <div class="form-group form-group--checkbox">
-
-                    <form:select path="institution" items="${institutions}" itemValue="id" itemLabel="name" cssClass="selecting" id="institution"/>
-
+                    <label>
+                        <form:radiobutton path="institution" id="institution" value="${institution.id}" itemValue="id" itemLabel="name" data-name="${institution.name}"/>
+                        <span class="checkbox radio"></span>
+                        <span class="description">
+                        <div class="title">Fundacja “${institution.name}”</div>
+                        <div class="subtitle">
+                        Cel i misja: ${institution.description}
+                        </div>
+                    </label>
                 </div>
+                </c:forEach>
+
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
                     <button type="button" class="btn next-step">Dalej</button>
