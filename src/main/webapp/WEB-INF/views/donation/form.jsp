@@ -60,7 +60,7 @@
                 <c:forEach items="${categories}" var="category">
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <form:checkbox path="categories" value="${category.id}"/>
+                        <form:checkbox path="categories" value="${category.id}" id="category" data-name="${category.name}"/>
                         <span class="checkbox"></span>
                         <span class="description"
                         >${category.name}</span
@@ -97,17 +97,17 @@
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
                 <c:forEach items="${institutions}" var="institution">
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <form:radiobutton path="institution" id="institution" value="${institution.id}" itemValue="id" itemLabel="name" data-name="${institution.name}"/>
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                        <div class="title">Fundacja “${institution.name}”</div>
-                        <div class="subtitle">
-                        Cel i misja: ${institution.description}
-                        </div>
-                    </label>
-                </div>
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <form:radiobutton path="institution" id="institution" value="${institution.id}" itemValue="id" itemLabel="name" data-name="${institution.name}"/>
+                            <span class="checkbox radio"></span>
+                            <span class="description">
+                            <div class="title">Fundacja “${institution.name}”</div>
+                            <div class="subtitle">
+                                Cel i misja: ${institution.description}
+                            </div>
+                        </label>
+                    </div>
                 </c:forEach>
 
                 <div class="form-group form-group--buttons">
@@ -176,7 +176,10 @@
                                 <span class="summary--text" name="bags_declared"></span>
                                 &nbsp
                                 <span class="summary--text"
-                                >worki ubrań w dobrym stanie dla dzieci</span
+                                >worki</span>
+                                &nbsp
+                                <span class="summary--text" id="categories_declared"
+                                ></span
                                 >
                             </li>
 
