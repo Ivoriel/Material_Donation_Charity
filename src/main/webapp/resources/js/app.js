@@ -92,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   const bags = document.getElementsByName("bags_declared").item(0);
+  const categories = document.getElementById("categories_declared");
   const institution = document.getElementById("institution_declared");
   const street = document.getElementById("street_declared");
   const city = document.getElementById("city_declared");
@@ -176,6 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // TODO: get data from inputs and show them in summary
 
       bags.textContent=document.querySelector("#bags").value;
+      var selected_categories = document.querySelectorAll("#category");
       var selected_institutions =  document.querySelectorAll("#institution");
       street.textContent=document.querySelector("#street").value;
       city.textContent=document.querySelector("#city").value;
@@ -190,7 +192,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       })
 
-      console.log(selected_institutions);
+      selected_categories.forEach((element) => {
+          if (this.currentStep === 5) {
+              if (element.checked === true) {
+                  if (categories.textContent === "") {
+                      categories.textContent = element.dataset.name;
+                  } else {
+                      categories.textContent = categories.textContent + ", " + element.dataset.name;
+                  }
+              }
+          } else {
+              categories.textContent = "";
+          }
+      })
+
+      console.log(selected_categories);
     }
 
   }
