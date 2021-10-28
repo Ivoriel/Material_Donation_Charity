@@ -43,4 +43,12 @@ public class UserViewAdapter implements UserService{
     public void deleteUser(long id) {
         //nein
     }
+
+    private UserDto mapEntityToDto(User user) {
+        var userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setEmail(user.getEmail());
+        userDto.setPassword(user.getPassword());
+        return userDto;
+    }
 }
