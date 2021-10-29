@@ -31,7 +31,7 @@ public class UserViewAdapter implements UserService{
 
     @Override
     public UserDto findUser(long id) {
-        return null;
+        return mapEntityToDto(getUser(id));
     }
 
     @Override
