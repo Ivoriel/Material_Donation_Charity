@@ -3,6 +3,7 @@ package pl.kosinski.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -36,7 +37,12 @@ public class UserViewAdapter implements UserService{
 
     @Override
     public List<UserDto> findAllUsers() {
-        return null;
+        List<UserDto> dtoList = new ArrayList<>();
+        List<User> userList = userRepository.findAll();
+        for (var u : userList) {
+            dtoList.add(mapEntityToDto(u));
+        }
+        return dtoList;
     }
 
     @Override
