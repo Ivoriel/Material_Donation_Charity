@@ -47,7 +47,7 @@ public class UserViewAdapter implements UserService{
 
     @Override
     public void deleteUser(long id) {
-        //nein
+        userRepository.deleteById(id);
     }
 
     private UserDto mapEntityToDto(User user) {
