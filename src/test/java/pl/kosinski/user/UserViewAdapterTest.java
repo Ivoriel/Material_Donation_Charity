@@ -19,7 +19,11 @@ public class UserViewAdapterTest {
 
     @Test
     public void saveUser() {
-        //To do
+        var userViewAdapter = new UserViewAdapter(userRepository);
+        var user = generateUser();
+        userViewAdapter.saveUser(user);
+        user.setId(1L);
+        assertEquals(user, userViewAdapter.findUser(1));
     }
 
     @Test
@@ -35,5 +39,12 @@ public class UserViewAdapterTest {
     @Test
     public void deleteUser() {
         //To do
+    }
+
+    private UserDto generateUser() {
+        var user = new UserDto();
+        user.setEmail("test@email.com");
+        user.setPassword("test_pswd");
+        return user;
     }
 }
