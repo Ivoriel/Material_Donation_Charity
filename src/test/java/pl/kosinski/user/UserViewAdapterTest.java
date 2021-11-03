@@ -7,6 +7,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -27,13 +30,18 @@ public class UserViewAdapterTest {
     }
 
     @Test
-    public void findUser() {
-        //To do
-    }
-
-    @Test
     public void findAllUsers() {
-        //To do
+        var userViewAdapter = new UserViewAdapter(userRepository);
+        var userList = new ArrayList<UserDto>();
+        var user1 = generateUser();
+        userViewAdapter.saveUser(user1);
+        user1.setId(1L);
+        userList.add(user1);
+        var user2 = generateUser();
+        userViewAdapter.saveUser(user2);
+        user2.setId(2L);
+        userList.add(user2);
+        assertEquals(userList, userViewAdapter.findAllUsers());
     }
 
     @Test
