@@ -4,11 +4,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
 
@@ -46,7 +48,13 @@ public class UserViewAdapterTest {
 
     @Test
     public void deleteUser() {
-        //To do
+        var userViewAdapter = new UserViewAdapter(userRepository);
+        var user = generateUser();
+        userViewAdapter.saveUser(user);
+        user.setId(1L);
+        assertEquals(user, userViewAdapter.findUser(1));
+        userViewAdapter.deleteUser(1);
+        assertThrows(JpaObjectRetrievalFailureException.class, () -> userViewAdapter.findUser(1));
     }
 
     private UserDto generateUser() {
