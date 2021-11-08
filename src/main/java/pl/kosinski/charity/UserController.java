@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.kosinski.user.UserService;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("/user")
 @AllArgsConstructor
 public class UserController {
 
