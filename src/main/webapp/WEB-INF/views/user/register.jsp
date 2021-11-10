@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:include page="common/header_unregistered.jsp"/>
+<jsp:include page="../common/header_unregistered.jsp"/>
 </header>
 
 <section class="login-page">
@@ -26,4 +26,4 @@
 
 
 
-<jsp:include page="../views/common/footer.jsp"/>
+<jsp:include page="../common/footer.jsp"/>
