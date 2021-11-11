@@ -17,8 +17,8 @@ public class UserController {
 
     @GetMapping("/register")
     public String registerUser(Model model) {
-        model.addAttribute(new UserDto());
-        return "register";
+        model.addAttribute("user", new UserDto());
+        return "/user/register";
     }
 
 }
