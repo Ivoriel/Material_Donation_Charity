@@ -6,12 +6,12 @@
 
 <section class="login-page">
     <h2>Załóż konto</h2>
-    <form>
+    <form:form method="post" modelAttribute="user">
         <div class="form-group">
-            <input type="email" name="email" placeholder="Email" />
+            <form:input type="email" name="email" placeholder="Email" />
         </div>
         <div class="form-group">
-            <input type="password" name="password" placeholder="Hasło" />
+            <form:input type="password" name="password" placeholder="Hasło" />
         </div>
         <div class="form-group">
             <input type="password" name="password2" placeholder="Powtórz hasło" />
@@ -21,7 +21,7 @@
             <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
         </div>
-    </form>
+    </form:form>
 </section>
 
 
