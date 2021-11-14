@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <jsp:include page="../common/header_unregistered.jsp"/>
 </header>
@@ -8,10 +9,10 @@
     <h2>Załóż konto</h2>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
-            <form:input type="email" name="email" placeholder="Email" />
+            <form:input path="email" type="email" placeholder="Email" />
         </div>
         <div class="form-group">
-            <form:input type="password" name="password" placeholder="Hasło" />
+            <form:input path="password" type="password" placeholder="Hasło" />
         </div>
         <div class="form-group">
             <input type="password" name="password2" placeholder="Powtórz hasło" />
