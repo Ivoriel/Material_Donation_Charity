@@ -15,7 +15,7 @@
             <form:input path="password" type="password" placeholder="Hasło" />
         </div>
         <div class="form-group">
-            <input type="password" name="password2" placeholder="Powtórz hasło" />
+            <input type="password" name="password2" placeholder="Powtórz hasło" id="passwordRetyped" />
         </div>
 
         <div class="form-group form-group--buttons">
