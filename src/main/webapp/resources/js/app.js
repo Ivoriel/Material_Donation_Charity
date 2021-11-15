@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
-      // TODO: get data from inputs and show them in summary
+      // TODO: get data from inputs and show them in summary - almost done
 
       bags.textContent=document.querySelector("#bags").value;
       var selected_categories = document.querySelectorAll("#category");
@@ -205,8 +205,6 @@ document.addEventListener("DOMContentLoaded", function() {
               categories.textContent = "";
           }
       })
-
-      console.log(selected_categories);
     }
 
   }
@@ -222,14 +220,32 @@ document.addEventListener("DOMContentLoaded", function() {
     for (var i = hidden_categories.length - 1; i >= 0; i--) {
       hidden_categories[i].remove();
     }
-      console.log(hidden_categories);
   });
   window.addEventListener("load", function() {
     for (var i = hidden_institutions.length - 1; i >= 0; i--) {
       hidden_institutions[i].remove();
     }
-    console.log(hidden_categories);
-    console.log(hidden_institutions);
   });
+
+  var passwordTyped = document.getElementsByName("password")[0]
+  var passwordRetyped = document.getElementsByName("password2")[0]
+  function passwordsUnmatchedError (passwordWindow1, passwordWindow2) {
+    errorDiv = document.createElement("div");
+    errorDiv.innerText = "Hasła nie są takie same.";
+    // passwordWindow1.parentNode.appendChild(errorDiv);
+    if (passwordWindow2.parentNode.childElementCount > 1) {
+      passwordWindow2.parentNode.lastElementChild.remove()
+    }
+    passwordWindow2.parentNode.appendChild(errorDiv);
+  }
+
+  console.log(passwordTyped)
+  console.log(passwordRetyped)
+
+  passwordRetyped.addEventListener("mouseout", function() {
+    if (passwordTyped.value != passwordRetyped.value) {
+      passwordsUnmatchedError(passwordTyped, passwordRetyped);
+    }
+  })
 
 });
