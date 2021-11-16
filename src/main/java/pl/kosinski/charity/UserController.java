@@ -32,7 +32,7 @@ public class UserController {
             return "/user/register";
         }
         userService.saveUser(user);
-        return "user registered";
+        return "/user/registration-confirmation";
     }
 
 }
