@@ -242,9 +242,15 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log(passwordTyped)
   console.log(passwordRetyped)
 
-  passwordRetyped.addEventListener("mouseout", function() {
-    if (passwordTyped.value != passwordRetyped.value) {
+  passwordRetyped.addEventListener("blur", function() {
+    if (passwordTyped.value !== passwordRetyped.value) {
       passwordsUnmatchedError(passwordTyped, passwordRetyped);
+    }
+  })
+
+  passwordRetyped.addEventListener("blur", function() {
+    if (passwordWindow2.parentNode.childElementCount > 1 && passwordTyped.value === passwordRetyped.value) {
+      passwordWindow2.parentNode.lastElementChild.remove()
     }
   })
 
