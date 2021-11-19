@@ -248,9 +248,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   })
 
-  passwordRetyped.addEventListener("blur", function() {
-    if (passwordWindow2.parentNode.childElementCount > 1 && passwordTyped.value === passwordRetyped.value) {
-      passwordWindow2.parentNode.lastElementChild.remove()
+  passwordRetyped.addEventListener("keyup", function() {
+    if (passwordRetyped.parentNode.childElementCount > 1) {
+      passwordRetyped.parentNode.lastElementChild.remove()
     }
   })
 
