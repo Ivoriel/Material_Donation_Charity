@@ -232,6 +232,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function passwordsUnmatchedError (passwordWindow1, passwordWindow2) {
     errorDiv = document.createElement("div");
     errorDiv.innerText = "Hasła nie są takie same.";
+    errorDiv.style.color = "red";
     // passwordWindow1.parentNode.appendChild(errorDiv);
     if (passwordWindow2.parentNode.childElementCount > 1) {
       passwordWindow2.parentNode.lastElementChild.remove()
