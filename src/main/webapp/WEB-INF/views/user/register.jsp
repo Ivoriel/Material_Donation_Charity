@@ -11,13 +11,13 @@
         <div class="form-group">
             <table>
                 <tr><td><form:input path="email" type="email" placeholder="Email" /></td></tr>
-                <tr><td><form:errors path="email" color="red" /></td></tr>
+                <tr><td><form:errors path="email" style="color: red" /></td></tr>
             </table>
         </div>
         <div class="form-group">
             <table>
                 <tr><td><form:input path="password" type="password" placeholder="Hasło" /></td></tr>
-                <tr><td><form:errors path="password" color="red" /></td></tr>
+                <tr><td><form:errors path="password" style="color: red" /></td></tr>
             </table>
         </div>
         <div class="form-group">
