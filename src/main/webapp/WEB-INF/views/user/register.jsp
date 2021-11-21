@@ -9,10 +9,16 @@
     <h2>Załóż konto</h2>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
-            <form:input path="email" type="email" placeholder="Email" />
+            <table>
+                <tr><td><form:input path="email" type="email" placeholder="Email" /></td></tr>
+                <tr><td><form:errors path="email" color="red" /></td></tr>
+            </table>
         </div>
         <div class="form-group">
-            <form:input path="password" type="password" placeholder="Hasło" />
+            <table>
+                <tr><td><form:input path="password" type="password" placeholder="Hasło" /></td></tr>
+                <tr><td><form:errors path="password" color="red" /></td></tr>
+            </table>
         </div>
         <div class="form-group">
             <input type="password" name="password2" placeholder="Powtórz hasło" id="passwordRetyped" />
