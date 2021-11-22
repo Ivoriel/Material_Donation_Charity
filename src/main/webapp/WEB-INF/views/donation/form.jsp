@@ -65,6 +65,7 @@
                         <span class="description"
                         >${category.name}</span
                         >
+                        <form:errors path="categories"/>
                     </label>
                 </div>
                 </c:forEach>
@@ -81,6 +82,7 @@
                     <label>
                         Liczba 60l worków:
                         <form:input path="quantity" type="number" step="1" min="1" id="bags" />
+                        <form:errors path="quantity" />
                     </label>
                 </div>
 
@@ -106,6 +108,7 @@
                             <div class="subtitle">
                                 Cel i misja: ${institution.description}
                             </div>
+                            <form:errors path="institution" />
                         </label>
                     </div>
                 </c:forEach>
@@ -125,16 +128,19 @@
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
                             <label> Ulica <form:input path="street" id="street" /> </label>
+                            <form:errors path="street" />
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label> Miasto <form:input path="city" id="city" /> </label>
+                            <form:errors path="city" />
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Kod pocztowy <form:input path="zipCode" id="zipCode" />
                             </label>
+                            <form:errors path="zipCode" />
                         </div>
 
                     </div>
@@ -143,16 +149,19 @@
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
                             <label> Data <form:input path="pickUpDate" type="date" pattern="yyyy-MM-dd" id="pickUpDate" /> </label>
+                            <form:errors path="pickUpDate" />
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label> Godzina <form:input path="pickUpTime" type="time" id="pickUpTime" /> </label>
+                            <form:errors path="pickUpTime" />
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
                                 <form:textarea path="pickUpComment" rows="5" id="pickUpComment"/>
+                                <form:errors path="pickUpComment" />
                             </label>
                         </div>
                     </div>
