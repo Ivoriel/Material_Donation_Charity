@@ -7,6 +7,11 @@
 
 <section class="login-page">
     <h2>Załóż konto</h2>
+    <c:if test="${not empty duplicateEmail}">
+        <h4>
+            duplicateEmail
+        </h4>
+    </c:if>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
             <table>
