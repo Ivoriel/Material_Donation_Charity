@@ -24,8 +24,11 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser (@Valid @ModelAttribute("user") UserDto user, BindingResult result) {
+    public String registerUser (@Valid @ModelAttribute("user") UserDto user, BindingResult result, Model model) {
         if (result.hasErrors()) {
+            return "/user/register";
+        } else if (userService.findUserByEmail(user.getEmail())) {
+            model.addAttribute("duplicateEmail", "Podany adres email zostal już zarejestrowany. Prosimy o podanie innego adresu.");
             return "/user/register";
         }
         userService.saveUser(user);
