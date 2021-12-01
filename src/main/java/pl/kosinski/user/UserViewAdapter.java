@@ -52,6 +52,16 @@ public class UserViewAdapter implements UserService{
         userRepository.deleteById(id);
     }
 
+    @Override
+    public Boolean findUserByEmail(String userEmail) {
+        User user = userRepository.findByEmail(userEmail);
+        if (user != null) {
+            return true;
+        }
+        return false;
+    }
+
+
     private UserDto mapEntityToDto(User user) {
         var userDto = new UserDto();
         userDto.setId(user.getId());
