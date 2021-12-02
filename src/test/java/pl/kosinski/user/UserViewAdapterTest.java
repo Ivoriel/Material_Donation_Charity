@@ -57,6 +57,15 @@ public class UserViewAdapterTest {
         assertThrows(JpaObjectRetrievalFailureException.class, () -> userViewAdapter.findUser(1));
     }
 
+    @Test
+    public void findUserByEmail() {
+        var userViewAdapter = new UserViewAdapter(userRepository);
+        var user = generateUser();
+        userViewAdapter.saveUser(user);
+        user.setId(1L);
+        assertEquals(true, userViewAdapter.findUserByEmail(user.getEmail()));
+    }
+
     private UserDto generateUser() {
         var user = new UserDto();
         user.setEmail("test@email.com");
