@@ -9,7 +9,7 @@
     <h2>Załóż konto</h2>
     <c:if test="${not empty duplicateEmail}">
         <h4>
-            duplicateEmail
+            ${duplicateEmail}
         </h4>
     </c:if>
     <form:form method="post" modelAttribute="user">
