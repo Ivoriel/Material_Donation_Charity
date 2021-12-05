@@ -8,9 +8,9 @@
 <section class="login-page">
     <h2>Załóż konto</h2>
     <c:if test="${not empty duplicateEmail}">
-        <h4>
+        <h3 style="color: red">
             ${duplicateEmail}
-        </h4>
+        </h3>
     </c:if>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
