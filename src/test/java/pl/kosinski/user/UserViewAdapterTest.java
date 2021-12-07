@@ -66,6 +66,16 @@ public class UserViewAdapterTest {
         assertEquals(true, userViewAdapter.findUserByEmail(user.getEmail()));
     }
 
+    @Test
+    public void checkPassword() {
+        var userViewAdapter = new UserViewAdapter(userRepository);
+        var user = generateUser();
+        userViewAdapter.saveUser(user);
+        user.setId(1L);
+        var savedUser = userViewAdapter.findUser(1);
+        assertEquals(true, userViewAdapter.verifyPassword(user.getPassword(), savedUser));
+    }
+
     private UserDto generateUser() {
         var user = new UserDto();
         user.setEmail("test@email.com");
