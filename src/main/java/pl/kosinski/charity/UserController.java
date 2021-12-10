@@ -35,4 +35,9 @@ public class UserController {
         return "/user/registration-confirmation";
     }
 
+    @GetMapping("/login")
+    public String loginUser(Model model) {
+        return "/user/login";
+    }
+
 }
