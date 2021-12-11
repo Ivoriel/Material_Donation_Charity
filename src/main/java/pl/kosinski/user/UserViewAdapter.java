@@ -1,6 +1,7 @@
 package pl.kosinski.user;
 
 import lombok.AllArgsConstructor;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +20,9 @@ public class UserViewAdapter implements UserService{
         var user = new User();
         if (userDto.getId() != null) {
             user = getUser(userDto.getId());
-            user.saveEmailAndPassword(userDto.getEmail(), userDto.getPassword());
+            user.saveEmailAndPassword(userDto.getEmail(), hashPassword(userDto.getPassword()));
         } else {
-            user.saveEmailAndPassword(userDto.getEmail(), userDto.getPassword());
+            user.saveEmailAndPassword(userDto.getEmail(), hashPassword(userDto.getPassword()));
         }
         user = userRepository.save(user);
         userDto.setId(user.getId());
@@ -61,6 +62,12 @@ public class UserViewAdapter implements UserService{
         return false;
     }
 
+    public Boolean verifyPassword(String password, UserDto user) {
+        if (BCrypt.checkpw(password, user.getPassword()))
+            return true;
+        else
+            return false;
+    }
 
     private UserDto mapEntityToDto(User user) {
         var userDto = new UserDto();
@@ -69,4 +76,9 @@ public class UserViewAdapter implements UserService{
         userDto.setPassword(user.getPassword());
         return userDto;
     }
+
+    private String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
 }
