@@ -8,7 +8,7 @@
     <h2>Użytkownik został zarejestrowany.</h2>
 
         <div class="form-group form-group--buttons">
-            <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
+            <a href="/user/login" class="btn btn--without-border">Zaloguj się</a>
         </div>
 </section>
 
