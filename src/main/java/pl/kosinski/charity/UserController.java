@@ -44,7 +44,7 @@ public class UserController {
     @PostMapping("/login")
     public String loginUser(HttpSession session) {
         session.setAttribute("userLoggedIn", true);
-        return "/charity";
+        return "/index";
     }
 
 }
