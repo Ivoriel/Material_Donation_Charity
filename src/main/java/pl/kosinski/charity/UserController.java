@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.kosinski.user.UserDto;
 import pl.kosinski.user.UserService;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -38,6 +39,12 @@ public class UserController {
     @GetMapping("/login")
     public String loginUser(Model model) {
         return "/user/login";
+    }
+
+    @PostMapping("/login")
+    public String loginUser(HttpSession session) {
+        session.setAttribute("userLoggedIn", true);
+        return "/charity";
     }
 
 }
