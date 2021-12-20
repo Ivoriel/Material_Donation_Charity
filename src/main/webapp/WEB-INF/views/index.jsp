@@ -1,7 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:include page="common/header_logged-out.jsp"/>
+<c:choose>
+    <c:when test="${sessionScope.userLoggedIn == 'true'}">
+
+        <jsp:include page="common/header_logged-in.jsp"/>
+
+    </c:when>
+    <c:when test="${sessionScope.userLoggedIn == 'false'}">
+
+        <jsp:include page="common/header_logged-out.jsp"/>
+
+    </c:when>
+</c:choose>
+
+<%--<jsp:include page="common/header_logged-out.jsp"/>--%>
 
     <div class="slogan container container--90">
         <div class="slogan--item">
