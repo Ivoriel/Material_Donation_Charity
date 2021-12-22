@@ -2,12 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+
 <jsp:include page="../../views/common/header_logged-out.jsp"/>
+
 </header>
 
 <section class="login-page">
     <h2>Zaloguj się</h2>
-    <form>
+    <form method="post">
         <div class="form-group">
             <input type="email" name="email" placeholder="Email" />
         </div>
