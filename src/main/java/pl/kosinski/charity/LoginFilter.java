@@ -13,11 +13,11 @@ import java.io.IOException;
 //    @Override
 //    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
 //
-////        HttpSession session = ((HttpServletRequest) request).getSession();
-////        Boolean userLoggedIn = false;
-////        if (session.getAttribute("userLoggedIn") != null) {
-////            userLoggedIn = (Boolean) session.getAttribute("userLoggedIn");
-////        }
+//        HttpSession session = ((HttpServletRequest) request).getSession();
+//        Boolean userLoggedIn;
+//        if (session.getAttribute("userLoggedIn") == null) {
+////            session.setAttribute("userLoggedIn", false);
+//        }
 ////        if (!userLoggedIn) {
 ////            ((HttpServletResponse) response).sendRedirect("/charity/login");
 ////        }
