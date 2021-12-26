@@ -16,23 +16,21 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class UserController {
 
-    private final String USER_REGISTER = "/user/register"
-
     UserService userService;
 
     @GetMapping("/register")
     public String registerUser(Model model) {
         model.addAttribute("user", new UserDto());
-        return USER_REGISTER;
+        return "/user/register";
     }
 
     @PostMapping("/register")
     public String registerUser (@Valid @ModelAttribute("user") UserDto user, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return USER_REGISTER;
-        } else if (userService.findUserByEmail(user.getEmail())) {
+            return "/user/register";
+        } else if (userService.findUserByEmail(user.getEmail()) != null) {
             model.addAttribute("duplicateEmail", "Podany adres email zostal już zarejestrowany. Prosimy o podanie innego adresu.");
-            return USER_REGISTER;
+            return "/user/register";
         }
         userService.saveUser(user);
         return "/user/registration-confirmation";
@@ -49,10 +47,10 @@ public class UserController {
         return "/index";
     }
 
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public String logOutUser(HttpSession session) {
         session.setAttribute("userLoggedIn", false);
-        return "index";
+        return "/index";
     }
 
 }
