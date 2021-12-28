@@ -63,7 +63,8 @@ public class UserViewAdapterTest {
         var user = generateUser();
         userViewAdapter.saveUser(user);
         user.setId(1L);
-        assertEquals(true, userViewAdapter.findUserByEmail(user.getEmail()));
+        user.setPassword(userViewAdapter.findUser(1).getPassword());
+        assertEquals(user, userViewAdapter.findUserByEmail(user.getEmail()));
     }
 
     @Test
