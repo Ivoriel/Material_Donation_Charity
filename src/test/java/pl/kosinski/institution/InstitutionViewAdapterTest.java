@@ -24,9 +24,7 @@ public class InstitutionViewAdapterTest {
     @Test
     public void saveInstitution() {
         InstitutionViewAdapter adapter = new InstitutionViewAdapter(institutionRepository);
-        InstitutionDto institution = new InstitutionDto();
-        institution.setName("test_name");
-        institution.setDescription("test_description");
+        InstitutionDto institution = generateInstitution();
         adapter.saveInstitution(institution);
         institution.setId(1L);
         assertEquals(institution, adapter.findInstitution(1));
@@ -36,15 +34,11 @@ public class InstitutionViewAdapterTest {
     public void findAll() {
         InstitutionViewAdapter adapter = new InstitutionViewAdapter(institutionRepository);
         List<InstitutionDto> institutionList = new ArrayList<>();
-        InstitutionDto institution1 = new InstitutionDto();
-        institution1.setName("test_name");
-        institution1.setDescription("test_description");
+        InstitutionDto institution1 = generateInstitution();
         adapter.saveInstitution(institution1);
         institution1.setId(1L);
         institutionList.add(institution1);
-        InstitutionDto institution2 = new InstitutionDto();
-        institution2.setName("test_name");
-        institution2.setDescription("test_description");
+        InstitutionDto institution2 = generateInstitution();
         adapter.saveInstitution(institution2);
         institution2.setId(2L);
         institutionList.add(institution2);
@@ -54,14 +48,10 @@ public class InstitutionViewAdapterTest {
     @Test
     public void deleteInstitution() {
         InstitutionViewAdapter adapter = new InstitutionViewAdapter(institutionRepository);
-        InstitutionDto institution1 = new InstitutionDto();
-        institution1.setName("test_name");
-        institution1.setDescription("test_description");
+        InstitutionDto institution1 = generateInstitution();
         adapter.saveInstitution(institution1);
         institution1.setId(1L);
-        InstitutionDto institution2 = new InstitutionDto();
-        institution2.setName("test_name");
-        institution2.setDescription("test_description");
+        InstitutionDto institution2 = generateInstitution();
         adapter.saveInstitution(institution2);
         institution2.setId(2L);
         assertEquals(institution1, adapter.findInstitution(1));
@@ -69,6 +59,22 @@ public class InstitutionViewAdapterTest {
         assertEquals(institution2, adapter.findInstitution(2));
         assertThrows(NoSuchElementException.class, () -> adapter.findInstitution(1));
 
+    }
+
+    @Test
+    public void findInstitutionByName() {
+        InstitutionViewAdapter adapter = new InstitutionViewAdapter(institutionRepository);
+        InstitutionDto institution = generateInstitution();
+        adapter.saveInstitution(institution);
+        institution.setId(1L);
+        assertEquals(institution, adapter.findInstitution(1));
+    }
+
+    private InstitutionDto generateInstitution() {
+        InstitutionDto institution = new InstitutionDto();
+        institution.setName("test_name");
+        institution.setDescription("test_description");
+        return institution;
     }
 
 
