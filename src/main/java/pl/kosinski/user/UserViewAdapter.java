@@ -54,12 +54,9 @@ public class UserViewAdapter implements UserService{
     }
 
     @Override
-    public Boolean findUserByEmail(String userEmail) {
+    public UserDto findUserByEmail(String userEmail) {
         User user = userRepository.findByEmail(userEmail);
-        if (user != null) {
-            return true;
-        }
-        return false;
+        return mapEntityToDto(user);
     }
 
     public Boolean verifyPassword(String password, UserDto user) {
