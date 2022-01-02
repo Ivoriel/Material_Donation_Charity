@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:include page="../common/header_unregistered.jsp"/>
+<jsp:include page="../../views/common/header_logged-out.jsp"/>
+
 </header>
 
 <section class="login-page">
