@@ -65,7 +65,7 @@
                         <span class="description"
                         >${category.name}</span
                         >
-                        <form:errors path="categories"/>
+                        <form:errors path="categories" style="color: red"/>
                     </label>
                 </div>
                 </c:forEach>
@@ -82,7 +82,7 @@
                     <label>
                         Liczba 60l worków:
                         <form:input path="quantity" type="number" step="1" min="1" id="bags" />
-                        <form:errors path="quantity" />
+                        <form:errors path="quantity" style="color: red"/>
                     </label>
                 </div>
 
@@ -108,7 +108,7 @@
                             <div class="subtitle">
                                 Cel i misja: ${institution.description}
                             </div>
-                            <form:errors path="institution" />
+                            <form:errors path="institution" style="color: red"/>
                         </label>
                     </div>
                 </c:forEach>
@@ -128,19 +128,19 @@
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
                             <label> Ulica <form:input path="street" id="street" /> </label>
-                            <form:errors path="street" />
+                            <form:errors path="street" style="color: red"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label> Miasto <form:input path="city" id="city" /> </label>
-                            <form:errors path="city" />
+                            <form:errors path="city" style="color: red"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Kod pocztowy <form:input path="zipCode" id="zipCode" />
                             </label>
-                            <form:errors path="zipCode" />
+                            <form:errors path="zipCode" style="color: red"/>
                         </div>
 
                     </div>
@@ -149,19 +149,19 @@
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
                             <label> Data <form:input path="pickUpDate" type="date" pattern="yyyy-MM-dd" id="pickUpDate" /> </label>
-                            <form:errors path="pickUpDate" />
+                            <form:errors path="pickUpDate" style="color: red"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label> Godzina <form:input path="pickUpTime" type="time" id="pickUpTime" /> </label>
-                            <form:errors path="pickUpTime" />
+                            <form:errors path="pickUpTime" style="color: red"/>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
                                 <form:textarea path="pickUpComment" rows="5" id="pickUpComment"/>
-                                <form:errors path="pickUpComment" />
+                                <form:errors path="pickUpComment" style="color: red"/>
                             </label>
                         </div>
                     </div>
