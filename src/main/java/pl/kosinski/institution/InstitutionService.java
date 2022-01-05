@@ -8,6 +8,8 @@ public interface InstitutionService {
 
     InstitutionDto findInstitution(long id);
 
+    InstitutionDto findInstitutionByName(String name);
+
     void deleteInstitution(long id);
 
     List<InstitutionDto> findAllInstitutions();
