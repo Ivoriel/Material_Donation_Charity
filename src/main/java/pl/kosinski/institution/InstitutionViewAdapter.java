@@ -32,6 +32,11 @@ public class InstitutionViewAdapter implements InstitutionService {
     }
 
     @Override
+    public InstitutionDto findInstitutionByName(String name) {
+        return mapEntityToDto(institutionRepository.findByName(name));
+    }
+
+    @Override
     public List<InstitutionDto> findAllInstitutions() {
         List<Institution> institutionList = institutionRepository.findAll();
         List<InstitutionDto> institutionDtoList = new ArrayList<>();
