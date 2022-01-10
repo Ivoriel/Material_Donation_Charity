@@ -22,7 +22,7 @@ public class InstitutionController {
     @GetMapping("/add")
     public String addInstitution(Model model) {
         model.addAttribute("institution", new InstitutionDto());
-        return "/intitution/instution-add";
+        return "/institution/add";
     }
 
     @PostMapping("/add")
