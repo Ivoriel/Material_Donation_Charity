@@ -6,7 +6,7 @@
 </header>
 
 <section class="login-page">
-    <h2>Załóż konto</h2>
+    <h2>Dodaj nową instytucję charytatywną</h2>
     <c:if test="${not empty duplicateInstitution}">
         <h3 style="color: red">
                 ${duplicateInstitution}
