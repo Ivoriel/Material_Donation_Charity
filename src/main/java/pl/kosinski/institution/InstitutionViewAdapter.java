@@ -37,6 +37,13 @@ public class InstitutionViewAdapter implements InstitutionService {
     }
 
     @Override
+    public Boolean IsInstitutionDuplicate(String name) {
+        if (institutionRepository.findByName(name) == null) {
+            return false;
+        } else return true;
+    }
+
+    @Override
     public List<InstitutionDto> findAllInstitutions() {
         List<Institution> institutionList = institutionRepository.findAll();
         List<InstitutionDto> institutionDtoList = new ArrayList<>();
