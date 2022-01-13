@@ -10,6 +10,8 @@ public interface InstitutionService {
 
     InstitutionDto findInstitutionByName(String name);
 
+    Boolean IsInstitutionDuplicate(String name);
+
     void deleteInstitution(long id);
 
     List<InstitutionDto> findAllInstitutions();
