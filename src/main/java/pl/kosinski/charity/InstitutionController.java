@@ -29,7 +29,7 @@ public class InstitutionController {
     public String addInstitution(@Valid InstitutionDto institution, BindingResult result, Model model){
         if (result.hasErrors()) {
             return "/institution/add";
-        } else if (institutionService.findInstitutionByName(institution.getName()) != null) {
+        } else if (institutionService.IsInstitutionDuplicate(institution.getName())) {
             model.addAttribute("duplicateInstitution", "Fundacja o podanej nazwie została już zarejestrowana.");
             return "/institution/add";
         }
