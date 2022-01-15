@@ -8,9 +8,9 @@
 <section class="login-page">
     <h2>Dodaj nową instytucję charytatywną</h2>
     <c:if test="${not empty duplicateInstitution}">
-        <h3 style="color: red">
+        <h2 style="color: red">
                 ${duplicateInstitution}
-        </h3>
+        </h2>
     </c:if>
     <form:form method="post" modelAttribute="institution">
         <div class="form-group">
