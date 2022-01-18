@@ -38,9 +38,7 @@ public class InstitutionViewAdapter implements InstitutionService {
 
     @Override
     public Boolean IsInstitutionDuplicate(String name) {
-        if (institutionRepository.findByName(name) == null) {
-            return false;
-        } else return true;
+        return institutionRepository.findByName(name) != null;
     }
 
     @Override
