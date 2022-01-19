@@ -2,7 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<jsp:include page="../common/header_unregistered.jsp"/>
+<jsp:include page="../common/head-meta.jsp"/>
+
+<body>
+<header>
+
+<jsp:include page="../common/header_logged-in.jsp"/>
+    <%--TODO - maybe add the visual element similar to the one on form pages--%>
+
 </header>
 
 <section class="login-page">
