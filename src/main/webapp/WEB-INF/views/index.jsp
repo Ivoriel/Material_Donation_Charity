@@ -1,6 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<jsp:include page="common/head-meta.jsp"/>
+
+<body>
+<header class="header--main-page">
+    
 <c:choose>
     <c:when test="${sessionScope.userLoggedIn == 'true'}">
 
@@ -72,7 +77,7 @@
         </div>
     </div>
 
-    <a href="#" class="btn btn--large">Załóż konto</a>
+    <a href="/user/register" class="btn btn--large">Załóż konto</a>
 </section>
 
 <section class="about-us">
