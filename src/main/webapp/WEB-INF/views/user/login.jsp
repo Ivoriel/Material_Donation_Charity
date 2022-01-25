@@ -2,11 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<jsp:include page="../common/head-meta.jsp"/>
 
+<body>
+<header>
 <jsp:include page="../../views/common/header_logged-out.jsp"/>
 
 </header>
-
+<%--TO DO - maybe add the visual element similar to the one on form pages--%>
 <section class="login-page">
     <h2>Zaloguj się</h2>
     <form method="post">
