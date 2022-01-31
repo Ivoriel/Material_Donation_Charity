@@ -2,6 +2,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<jsp:include page="../common/head-meta.jsp"/>
+
+<body>
+<header class="header--form-page">
+
 <jsp:include page="../../views/common/header_logged-in.jsp"/>
 
     <div class="slogan container container--90">
