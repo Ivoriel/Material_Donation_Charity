@@ -32,16 +32,21 @@ public class DonationViewAdapterTest {
     InstitutionRepository institutionRepository;
 
     @Test
-    public void saveDonation() {
+    public void checkIfDonationIsSavedAndRetrievedWhenCalled() {
+        // Tests both save and read methods
+        // given Donation not present in db
         DonationViewAdapter adapter = new DonationViewAdapter(donationRepository);
         DonationDto donation = createDonationDto(1);
+        // when Donation is saved to db
         adapter.saveDonation(donation);
         donation.setId(1L);
+        // then Donation should be retrievable when called by id
         assertEquals(donation, adapter.findDonation(1));
     }
 
     @Test
-    public void findAllDonations() {
+    public void checkIfListOfDonationsPresentInDbCanBeRetrieved() {
+        // given Donations are present in db
         DonationViewAdapter adapter = new DonationViewAdapter(donationRepository);
         List<DonationDto> donationList = new ArrayList<>();
         DonationDto donation1 = createDonationDto(1);
@@ -52,11 +57,14 @@ public class DonationViewAdapterTest {
         adapter.saveDonation(donation2);
         donation2.setId(2L);
         donationList.add(donation2);
+        // when call to find all donations is executed
+        // then all donations should be retrieved
         assertEquals(donationList, adapter.findAllDonations());
     }
 
     @Test
-    public void deleteDonation() {
+    public void checkIfDonationPresentInDbIsDeleted() {
+        // given Donation is present in db
         DonationViewAdapter adapter = new DonationViewAdapter(donationRepository);
         DonationDto donation1 = createDonationDto(1);
         adapter.saveDonation(donation1);
@@ -65,7 +73,9 @@ public class DonationViewAdapterTest {
         adapter.saveDonation(donation2);
         donation2.setId(2L);
         assertEquals(donation1, adapter.findDonation(1));
+        // when Donation is deleted from db
         adapter.deleteDonation(1);
+        // then Donation should not be retrievable
         assertEquals(donation2, adapter.findDonation(2));
         assertThrows(NoSuchElementException.class, () -> adapter.findDonation(1));
     }
