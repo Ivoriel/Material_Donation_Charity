@@ -21,6 +21,8 @@ public class User {
     private String email;
     @NotNull
     private String password;
+    @NotNull
+    private Enum userRole;
 
     public void saveEmailAndPassword(String email, String password) {
         this.email = email;
