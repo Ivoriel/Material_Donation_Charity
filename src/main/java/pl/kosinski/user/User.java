@@ -3,10 +3,7 @@ package pl.kosinski.user;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -22,7 +19,8 @@ public class User {
     @NotNull
     private String password;
     @NotNull
-    private Enum userRole;
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
 
     public void saveEmailAndPassword(String email, String password) {
         this.email = email;
