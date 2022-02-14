@@ -12,6 +12,7 @@ import java.io.IOException;
 @Component
 @WebFilter(urlPatterns = "/institution/*")
 public class LoginFilter implements Filter {
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
 
@@ -20,9 +21,11 @@ public class LoginFilter implements Filter {
         if (userLoggedIn == null) {
             session.setAttribute("userLoggedIn", false);
             userLoggedIn = false;
+        } else {
+            userLoggedIn = true;
         }
         if (! (boolean) userLoggedIn) {
-            ((HttpServletResponse) response).sendRedirect("/charity/login");
+            ((HttpServletResponse) response).sendRedirect("/user/login");
         } else {
             filterChain.doFilter(request, response);
         }
