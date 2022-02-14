@@ -21,8 +21,14 @@ public class UserViewAdapter implements UserService{
         if (userDto.getId() != null) {
             user = getUser(userDto.getId());
             user.saveEmailAndPassword(userDto.getEmail(), hashPassword(userDto.getPassword()));
+            if (userDto.getUserType() == null) {
+                user.setUserType(UserType.DONOR);
+            }
         } else {
             user.saveEmailAndPassword(userDto.getEmail(), hashPassword(userDto.getPassword()));
+            if (userDto.getUserType() == null) {
+                user.setUserType(UserType.DONOR);
+            }
         }
         user = userRepository.save(user);
         userDto.setId(user.getId());
@@ -71,6 +77,7 @@ public class UserViewAdapter implements UserService{
         userDto.setId(user.getId());
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
+        userDto.setUserType(user.getUserType());
         return userDto;
     }
 
