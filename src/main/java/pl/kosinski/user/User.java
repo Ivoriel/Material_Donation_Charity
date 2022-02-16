@@ -27,4 +27,8 @@ public class User {
         this.password = password;
     }
 
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
 }
