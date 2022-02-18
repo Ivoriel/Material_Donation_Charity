@@ -1,7 +1,9 @@
 package pl.kosinski.user;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserTypeConverter implements Converter<String, UserType> {
 
     public UserType convert (String source) {
