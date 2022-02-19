@@ -69,7 +69,7 @@ public class UserViewAdapterTest {
 
     @Test
     public void checkIfUserIsRetrievedWhenCalledByEmail() {
-        //given User is present in db
+        // given User is present in db
         var userViewAdapter = new UserViewAdapter(userRepository);
         var user = generateUser();
         userViewAdapter.saveUser(user);
@@ -78,6 +78,18 @@ public class UserViewAdapterTest {
         // when call to find User by email is executed
         // then Institution of specific email should be retrieved
         assertEquals(user, userViewAdapter.findUserByEmail(user.getEmail()));
+    }
+
+    @Test
+    public void checkIfEmailIsIdentifiedAsExistingInDb() {
+        // given email is registered in db
+        var userViewAdapter = new UserViewAdapter(userRepository);
+        var user = generateUser();
+        userViewAdapter.saveUser(user);
+        user.setId(1L);
+        // when call to find if email exists in db
+        // then method should return true
+        assertTrue(userViewAdapter.emailExistsInDb("test@email.com"));
     }
 
     @Test
