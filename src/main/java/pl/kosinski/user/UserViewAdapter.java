@@ -65,6 +65,14 @@ public class UserViewAdapter implements UserService{
         return mapEntityToDto(user);
     }
 
+    @Override
+    public boolean emailExistsInDb(String userEmail) {
+        if (userRepository.findByEmail(userEmail) != null) {
+            return true;
+        }
+        return false;
+    }
+
     public Boolean verifyPassword(String password, UserDto user) {
         if (BCrypt.checkpw(password, user.getPassword()))
             return true;
