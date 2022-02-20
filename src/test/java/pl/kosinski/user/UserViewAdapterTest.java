@@ -93,6 +93,18 @@ public class UserViewAdapterTest {
     }
 
     @Test
+    public void checkIfEmailIsIdentifiedAsNotExistingInDb() {
+        // given email is not registered in db
+        var userViewAdapter = new UserViewAdapter(userRepository);
+        var user = generateUser();
+        userViewAdapter.saveUser(user);
+        user.setId(1L);
+        // when call to find if email exists in db
+        // then method should return false
+        assertFalse(userViewAdapter.emailExistsInDb("test2@email.com"));
+    }
+
+    @Test
     public void checkUserPasswordWhenCalled() {
         //given User is present in db
         var userViewAdapter = new UserViewAdapter(userRepository);
