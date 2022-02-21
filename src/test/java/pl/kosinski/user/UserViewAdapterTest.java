@@ -121,6 +121,7 @@ public class UserViewAdapterTest {
         var user = new UserDto();
         user.setEmail("test@email.com");
         user.setPassword("test_pswd");
+        user.setUserType(UserType.DONOR);
         return user;
     }
 }
