@@ -29,8 +29,9 @@ public class UserViewAdapterTest {
         var userViewAdapter = new UserViewAdapter(userRepository);
         var user = generateUser();
         // when User is saved to db
-        userViewAdapter.saveUser(user);
+        var savedUser = userViewAdapter.saveUser(user);
         user.setId(1L);
+        user.setPassword(savedUser.getPassword());
         // then User should be retrievable when called by id
         assertEquals(user, userViewAdapter.findUser(1));
     }
