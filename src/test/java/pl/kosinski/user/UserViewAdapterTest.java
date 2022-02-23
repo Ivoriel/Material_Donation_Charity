@@ -42,12 +42,14 @@ public class UserViewAdapterTest {
         var userViewAdapter = new UserViewAdapter(userRepository);
         var userList = new ArrayList<UserDto>();
         var user1 = generateUser();
-        userViewAdapter.saveUser(user1);
+        var savedUser = userViewAdapter.saveUser(user1);
         user1.setId(1L);
+        user1.setPassword(savedUser.getPassword());
         userList.add(user1);
         var user2 = generateUser();
-        userViewAdapter.saveUser(user2);
+        savedUser = userViewAdapter.saveUser(user2);
         user2.setId(2L);
+        user2.setPassword(savedUser.getPassword());
         userList.add(user2);
         // when call to find all Users is executed
         // then all Users should be retrieved
