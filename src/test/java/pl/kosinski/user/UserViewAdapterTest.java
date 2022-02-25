@@ -61,8 +61,9 @@ public class UserViewAdapterTest {
         // given User is present in db
         var userViewAdapter = new UserViewAdapter(userRepository);
         var user = generateUser();
-        userViewAdapter.saveUser(user);
+        var savedUser = userViewAdapter.saveUser(user);
         user.setId(1L);
+        user.setPassword(savedUser.getPassword());
         assertEquals(user, userViewAdapter.findUser(1));
         // when User is deleted from db
         userViewAdapter.deleteUser(1);
