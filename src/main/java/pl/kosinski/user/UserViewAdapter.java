@@ -23,16 +23,15 @@ public class UserViewAdapter implements UserService{
             user.saveEmailAndPassword(userDto.getEmail(), hashPassword(userDto.getPassword()));
             if (userDto.getUserType() == null) {
                 user.setUserType(UserType.DONOR);
-            }
+            } else user.setUserType(userDto.getUserType());
         } else {
             user.saveEmailAndPassword(userDto.getEmail(), hashPassword(userDto.getPassword()));
             if (userDto.getUserType() == null) {
                 user.setUserType(UserType.DONOR);
-            }
+            } else user.setUserType(userDto.getUserType());
         }
         user = userRepository.save(user);
-        userDto.setId(user.getId());
-        return userDto;
+        return mapEntityToDto(user);
     }
 
     private User getUser(long id) {
