@@ -53,4 +53,9 @@ public class UserController {
         return "redirect:/charity";
     }
 
+    @GetMapping("/list")
+    public String userList(Model model) {
+        return "/user/user-list";
+    }
+
 }
