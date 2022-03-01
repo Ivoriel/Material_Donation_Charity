@@ -59,7 +59,16 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String userprofile(Model model) {
+    public String userProfile(Model model) {
+        return "/user/user-profile";
+    }
+
+    @PostMapping("/profile")
+    public String saveUser(@Valid @ModelAttribute("user") UserDto user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "/user/user-profile";
+        }
+        userService.saveUser(user);
         return "/user/user-profile";
     }
 
