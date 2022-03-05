@@ -14,5 +14,7 @@ public interface UserService {
 
     UserDto findUserByEmail(String userEmail);
 
+    boolean emailExistsInDb(String userEmail);
+
     Boolean verifyPassword(String password, UserDto userDto);
 }
