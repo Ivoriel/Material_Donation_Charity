@@ -59,12 +59,13 @@ public class UserController {
         return "/user/user-list";
     }
 
-    @GetMapping("/profile")
-    public String userProfile(Model model) {
+    @GetMapping("/profile/{userId}")
+    public String userProfile(Model model, @PathVariable(value="userId") long userId) {
+        model.addAttribute("user", userService.findUser(userId));
         return "/user/user-profile";
     }
 
-    @PostMapping("/profile")
+    @PostMapping("/profile/{userId}")
     public String saveUser(@Valid @ModelAttribute("user") UserDto user, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "/user/user-profile";
@@ -72,5 +73,7 @@ public class UserController {
         userService.saveUser(user);
         return "/user/user-profile";
     }
+
+    //add userType to model attributes
 
 }
