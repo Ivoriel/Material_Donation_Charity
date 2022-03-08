@@ -9,6 +9,24 @@
     <jsp:include page="../common/header_logged-in.jsp"/>
 </header>
 
+<section class="help">
+    <h2>Lista użytkowników</h2>
+    <table>
+        <c:forEach var="user" items="${userList}">
+            <tr>
+                <td class="col">
+                    <div class="title">${user.id}</div>
+                </td>
+                <td class="col">
+                    <div class="title">${user.email}</div>
+                </td>
+                <td class="col">
+                    <div class="title">${user.userType}</div>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+
 </section>
 
 <jsp:include page="../../views/common/footer.jsp"/>
