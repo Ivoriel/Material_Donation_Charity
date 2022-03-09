@@ -9,6 +9,28 @@
     <jsp:include page="../common/header_logged-in.jsp"/>
 </header>
 
+<section>
+    <table>
+        <form:form method="post" modelAttribute="user">
+            <tr>
+                <td><form:label path="email">User email:</form:label></td>
+                <td><form:input path="email">
+                </td>
+                <td><form:errors path="email" /></td>
+            </tr>
+            <tr>
+                <td><form:label path="userType">User type:</form:label></td>
+                <td><form:select path="userType" />
+                    <form:options items="${userTypes}" itemValue="label" itemValue="label">
+                    </form:select>
+                </td>
+                <td><form:errors path="userType" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Save"></td>
+            </tr>
+        </form:form>
+    </table>
 </section>
 
 <jsp:include page="../../views/common/footer.jsp"/>
