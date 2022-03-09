@@ -7,9 +7,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.kosinski.user.UserDto;
 import pl.kosinski.user.UserService;
+import pl.kosinski.user.UserType;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -74,6 +76,9 @@ public class UserController {
         return "/user/user-profile";
     }
 
-    //add userType to model attributes
+    @ModelAttribute
+    public UserType[] userTypes() {
+        return UserType.values();
+    }
 
 }
