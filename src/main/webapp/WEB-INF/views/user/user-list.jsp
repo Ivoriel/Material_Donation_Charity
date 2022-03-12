@@ -23,6 +23,11 @@
                 <td class="col">
                     <div class="title">${user.userType}</div>
                 </td>
+                <form action="/user/profile/${user.id}" method="get">
+                    <td>
+                        <input type="submit" value="Profil">
+                    </td>
+                </form>
             </tr>
         </c:forEach>
     </table>
