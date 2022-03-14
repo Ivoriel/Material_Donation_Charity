@@ -11,7 +11,7 @@
 
 <section>
     <table>
-        <form:form method="post" modelAttribute="user">
+        <form:form action="/user/profile/${user.id}" method="post" modelAttribute="user">
             <tr>
                 <td><form:label path="email">User email:</form:label></td>
                 <td><form:input path="email"/>
