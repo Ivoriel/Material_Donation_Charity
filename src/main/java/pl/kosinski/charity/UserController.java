@@ -68,7 +68,8 @@ public class UserController {
     }
 
     @PostMapping("/profile/{userId}")
-    public String saveUser(@Valid @ModelAttribute("user") UserDto user, BindingResult result, Model model) {
+    public String saveUser(@Valid @ModelAttribute("user") UserDto user, BindingResult result,
+                           @PathVariable(value="userId") long userId, Model model) {
         if (result.hasErrors()) {
             return "/user/user-profile";
         }
