@@ -73,6 +73,11 @@ public class UserController {
         if (result.hasErrors()) {
             return "/user/user-profile";
         }
+        if (user.getId() == null || user.getPassword() == null) {
+            UserDto dbUser = userService.findUser(userId);
+            user.setId(dbUser.getId());
+            user.setPassword(dbUser.getPassword());
+        }
         userService.saveUser(user);
         return "/user/user-profile";
     }
