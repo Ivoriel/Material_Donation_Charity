@@ -38,4 +38,10 @@ public class InstitutionController {
         return "institution/add-confirmation";
     }
 
+    @GetMapping("/list")
+    public String institutionList(Model model) {
+        model. addAttribute("institutions", institutionService.findAllInstitutions());
+        return "/institution/institution-list";
+    }
+
 }
