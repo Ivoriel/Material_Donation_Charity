@@ -8,7 +8,7 @@
             <li class="logged-user">
                 Witaj Agata
                 <ul class="dropdown">
-                    <li><a href="#">Profil</a></li>
+                    <li><a href="/user/profile/${user.id}">Profil</a></li>
                     <li><a href="#">Moje zbiórki</a></li>
                     <li><a href="/user/list">Lista użytkowników</a></li>
                     <li><a href="/user/logout">Wyloguj</a></li>
