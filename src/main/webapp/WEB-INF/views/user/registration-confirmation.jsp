@@ -8,7 +8,7 @@
 <jsp:include page="../../views/common/header_logged-out.jsp"/>
 
 </header>
-<%--TO DO - maybe add the visual element similar to the one on form pages--%>
+<%--TODO - maybe add the visual element similar to the one on form pages--%>
 <section class="login-page">
     <h2>Użytkownik został zarejestrowany.</h2>
 
