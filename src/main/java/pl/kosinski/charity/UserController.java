@@ -82,6 +82,12 @@ public class UserController {
         return "/user/user-profile";
     }
 
+    @PostMapping("/profile/delete/{userId}")
+    public String deleteUser(@PathVariable(value = "userId") long userId) {
+        userService.deleteUser(userId);
+        return "user/deletion-confirmation";
+    }
+
     @ModelAttribute
     public UserType[] userTypes() {
         return UserType.values();
