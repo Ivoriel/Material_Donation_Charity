@@ -4,12 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import pl.kosinski.charity.LoginFilter;
 
-import java.util.logging.Filter;
-
-//@Configuration
 @SpringBootApplication
 public class CharityApplication {
 
@@ -30,9 +26,5 @@ public class CharityApplication {
 
         return registrationBean;
     }
-
-//    public LoginFilter loginFilter () {
-//        return new LoginFilter();
-//    }
 
 }
