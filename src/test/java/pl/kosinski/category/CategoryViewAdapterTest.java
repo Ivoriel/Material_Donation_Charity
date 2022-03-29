@@ -19,23 +19,26 @@ import static org.junit.Assert.assertThrows;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class CategoryViewAdapterTest {
 
-//    CategoryViewAdapter adapter;
     @Autowired
     CategoryRepository categoryRepository;
 
     @Test
-    public void saveCategory() {
-        //Tests both save and read methods
+    public void checkIfCategoryIsSavedAndRetrievedWhenCalled() {
+        // Tests both save and read methods
+        // given Category not present in db
         CategoryViewAdapter adapter = new CategoryViewAdapter(categoryRepository);
         CategoryDto category = new CategoryDto();
         category.setName("test_category");
+        // when Category is saved to db
         adapter.saveCategory(category);
         category.setId(1L);
+        // then Category should be retrievable when called by id
         assertEquals(category, adapter.findCategory(1));
     }
 
     @Test
-    public void findAllCategories() {
+    public void checkIfListOfCategoriesPresentInDbCanBeRetrieved() {
+        // given Categories are present in db
         CategoryViewAdapter adapter = new CategoryViewAdapter(categoryRepository);
         List<CategoryDto> categoryList = new ArrayList<>();
         CategoryDto category1 = new CategoryDto();
@@ -48,11 +51,14 @@ public class CategoryViewAdapterTest {
         adapter.saveCategory(category2);
         category2.setId(2L);
         categoryList.add(category2);
+        // when call to find all categories is executed
+        // then all categories should be retrieved
         assertEquals(categoryList, adapter.findAllCategories());
     }
 
     @Test
-    public void deleteCategory() {
+    public void checkIfCategoryPresentInDbIsDeleted() {
+        // given Category is present in db
         CategoryViewAdapter adapter = new CategoryViewAdapter(categoryRepository);
         CategoryDto category1 = new CategoryDto();
         category1.setName("test_1");
@@ -63,7 +69,9 @@ public class CategoryViewAdapterTest {
         adapter.saveCategory(category2);
         category2.setId(2L);
         assertEquals(category1, adapter.findCategory(1));
+        // when Category is deleted from db
         adapter.deleteCategory(1);
+        // then Category should not be retrievable
         assertEquals(category2, adapter.findCategory(2));
         assertThrows(NoSuchElementException.class, () -> adapter.findCategory(category1.getId()));
     }
