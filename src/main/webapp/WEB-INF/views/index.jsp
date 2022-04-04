@@ -17,9 +17,15 @@
         <jsp:include page="common/header_logged-out.jsp"/>
 
     </c:when>
+
+    <c:when test="${sessionScope.userLoggedIn == null}">
+
+        <jsp:include page="common/header_logged-out.jsp"/>
+
+    </c:when>
 </c:choose>
 
-<%--<jsp:include page="common/header_logged-out.jsp"/>--%>
+<jsp:include page="common/header_navigation_bar.jsp"/>
 
     <div class="slogan container container--90">
         <div class="slogan--item">
@@ -122,4 +128,4 @@
 
 </section>
 
-<jsp:include page="../views/common/footer.jsp"/>
+<jsp:include page="common/footer.jsp"/>
