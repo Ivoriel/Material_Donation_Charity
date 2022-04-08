@@ -6,7 +6,8 @@
 
 <body>
 <header>
-<jsp:include page="../common/header_unregistered.jsp"/>
+<jsp:include page="../common/header_logged-out.jsp"/>
+<jsp:include page="../common/header_navigation_bar.jsp"/>
 </header>
 <%--TODO - maybe add the visual element similar to the one on form pages--%>
 <section class="login-page">
