@@ -9,6 +9,7 @@ import pl.kosinski.user.UserDto;
 import pl.kosinski.user.UserService;
 import pl.kosinski.user.UserType;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
@@ -40,12 +41,19 @@ public class UserController {
 
     @GetMapping("/login")
     public String loginUser(Model model) {
+        model.addAttribute("username");
+        model.addAttribute("password");
         return "/user/login";
     }
 
     @PostMapping("/login")
-    public String loginUser(HttpSession session) {
-        session.setAttribute("userLoggedIn", true);
+    public String loginUser(HttpSession session, HttpServletRequest request) {
+        var email = request.getParameter("email");
+        var password = request.getParameter("password");
+        if (userService.login(email, password)) {
+            session.setAttribute("userLoggedIn", true);
+            session.setAttribute("user", userService.findUserByEmail(email));
+        }
         return "redirect:/charity";
     }
 
