@@ -17,4 +17,6 @@ public interface UserService {
     boolean emailExistsInDb(String userEmail);
 
     Boolean verifyPassword(String password, UserDto userDto);
+
+    boolean login(String email, String password);
 }
