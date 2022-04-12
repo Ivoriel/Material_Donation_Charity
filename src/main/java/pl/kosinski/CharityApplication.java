@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import pl.kosinski.charity.LoginFilter;
+import pl.kosinski.charity.UserLoginFilter;
 
 @SpringBootApplication
 public class CharityApplication {
@@ -14,11 +14,11 @@ public class CharityApplication {
     }
 
     @Bean
-    public FilterRegistrationBean<LoginFilter> loginFilterRegistration(){
-        FilterRegistrationBean<LoginFilter> registrationBean
+    public FilterRegistrationBean<UserLoginFilter> loginFilterRegistration(){
+        FilterRegistrationBean<UserLoginFilter> registrationBean
                 = new FilterRegistrationBean<>();
 
-        registrationBean.setFilter(new LoginFilter());
+        registrationBean.setFilter(new UserLoginFilter());
         registrationBean.addUrlPatterns("/institution/*");
         registrationBean.addUrlPatterns("/user/profile/*");
         registrationBean.addUrlPatterns("/user/list/*");
