@@ -47,9 +47,13 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String loginUser(HttpSession session, HttpServletRequest request) {
+    public String loginUser(HttpSession session, HttpServletRequest request, Model model) {
         var email = request.getParameter("email");
         var password = request.getParameter("password");
+        if (userService.findUserByEmail(email)==null){
+            model.addAttribute("unregisteredEmail", "Dla podanego adresu email nie zostało utworzone konto użytkownika");
+            return "/user/login";
+        }
         if (userService.login(email, password)) {
             session.setAttribute("userLoggedIn", true);
             session.setAttribute("user", userService.findUserByEmail(email));
