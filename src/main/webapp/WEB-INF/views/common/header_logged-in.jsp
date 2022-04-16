@@ -6,7 +6,7 @@
     <nav class="container container--70">
         <ul class="nav--actions">
             <li class="logged-user">
-                Witaj Agata
+                Witaj ${user.firstName}
                 <ul class="dropdown">
                     <li><a href="/user/profile/${user.id}">Profil</a></li>
                     <li><a href="#">Moje zbiórki</a></li>
