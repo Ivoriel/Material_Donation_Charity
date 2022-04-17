@@ -13,6 +13,11 @@
 <%--TODO - maybe add the visual element similar to the one on form pages--%>
 <section class="login-page">
     <h2>Zaloguj się</h2>
+        <c:if test="${not empty unregisteredEmail}">
+            <h3 style="color: red">
+                ${unregisteredEmail}
+            </h3>
+        </c:if>
     <form method="post">
         <div class="form-group">
             <input type="email" name="email" placeholder="Email" />
