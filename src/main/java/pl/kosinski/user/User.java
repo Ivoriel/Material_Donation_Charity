@@ -18,6 +18,8 @@ public class User {
     private String email;
     @NotNull
     private String password;
+    private String firstName;
+    private String lastName;
     @NotNull
     @Enumerated(EnumType.STRING)
     private UserType userType;
@@ -25,6 +27,11 @@ public class User {
     public void saveEmailAndPassword(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public void saveNames(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public void setUserType(UserType userType) {
