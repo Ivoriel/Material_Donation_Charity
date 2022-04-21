@@ -8,6 +8,7 @@
 <header>
 
 <jsp:include page="../common/header_logged-in.jsp"/>
+<jsp:include page="../common/header_navigation_bar.jsp"/>
     <%--TODO - maybe add the visual element similar to the one on form pages--%>
 
 </header>
