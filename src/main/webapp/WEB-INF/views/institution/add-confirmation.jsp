@@ -6,7 +6,8 @@
 <body>
 <header>
 
-<jsp:include page="../../views/common/header_logged-in.jsp"/>
+<jsp:include page="../common/header_logged-in.jsp"/>
+<jsp:include page="../common/header_navigation_bar.jsp"/>
 
 </header>
 
