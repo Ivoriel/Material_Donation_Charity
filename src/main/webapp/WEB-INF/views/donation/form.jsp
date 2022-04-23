@@ -7,7 +7,8 @@
 <body>
 <header class="header--form-page">
 
-<jsp:include page="../../views/common/header_logged-in.jsp"/>
+<jsp:include page="../common/header_logged-in.jsp"/>
+<jsp:include page="../common/header_navigation_bar.jsp"/>
 
     <div class="slogan container container--90">
         <div class="slogan--item">
