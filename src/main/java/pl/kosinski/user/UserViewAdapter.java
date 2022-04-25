@@ -75,10 +75,7 @@ public class UserViewAdapter implements UserService{
 
     @Override
     public boolean emailExistsInDb(String userEmail) {
-        if (userRepository.findByEmail(userEmail) != null) {
-            return true;
-        }
-        return false;
+        return userRepository.findByEmail(userEmail) != null;
     }
 
     public Boolean verifyPassword(String password, UserDto user) {
