@@ -50,7 +50,7 @@ public class UserController {
     public String loginUser(HttpSession session, HttpServletRequest request, Model model) {
         var email = request.getParameter("email");
         var password = request.getParameter("password");
-        if (userService.findUserByEmail(email)==null){
+        if (!userService.emailExistsInDb(email)){
             model.addAttribute("unregisteredEmail", "Dla podanego adresu email nie zostało utworzone konto użytkownika");
             return "/user/login";
         }
