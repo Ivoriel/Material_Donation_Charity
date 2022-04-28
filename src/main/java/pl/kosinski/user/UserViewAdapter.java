@@ -76,10 +76,7 @@ public class UserViewAdapter implements UserService{
     }
 
     public Boolean verifyPassword(String password, UserDto user) {
-        if (BCrypt.checkpw(password, user.getPassword()))
-            return true;
-        else
-            return false;
+        return BCrypt.checkpw(password, user.getPassword());
     }
 
     private UserDto mapEntityToDto(User user) {
