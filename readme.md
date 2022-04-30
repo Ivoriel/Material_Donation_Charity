@@ -1,1 +1,1 @@
-
+Basic internet portal project.
