@@ -38,7 +38,7 @@ public class DonationController {
         if (result.hasErrors()) {
             return "/donation/form";
         }
-        donationDto = donationService.saveDonation(donationDto);
+        donationService.saveDonation(donationDto);
         return "/donation/form-confirmation";
     }
 
