@@ -7,3 +7,5 @@ to which they wish to donate (out of a list of serviced institutions), the donat
 and in what amounts) as well as pick-up address and time info.
 
 For that to be possible a nicely readable list of institutions was created on the main page to which donations can be made.
+
+For the donations to be placed, the donor has to register an account, therefore registration and login have been enabled.
