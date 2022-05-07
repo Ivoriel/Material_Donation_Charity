@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -28,7 +29,8 @@ public class InstitutionViewAdapter implements InstitutionService {
 
     @Override
     public InstitutionDto findInstitution(long id) {
-        return mapEntityToDto(institutionRepository.findById(id).get());
+        Optional<Institution> institution = institutionRepository.findById(id);
+        return institution.map(this::mapEntityToDto).orElseGet(InstitutionDto::new);
     }
 
     @Override
