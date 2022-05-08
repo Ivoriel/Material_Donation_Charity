@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -34,7 +35,8 @@ public class DonationViewAdapter implements DonationService {
 
     @Override
     public DonationDto findDonation(long id) {
-        return mapEntityToDto(donationRepository.findById(id).get());
+        Optional<Donation> donation = donationRepository.findById(id);
+        return donation.map(this::mapEntityToDto).orElse(new DonationDto());
     }
 
     @Override
