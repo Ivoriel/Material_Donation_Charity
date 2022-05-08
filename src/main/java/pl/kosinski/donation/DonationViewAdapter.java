@@ -19,11 +19,14 @@ public class DonationViewAdapter implements DonationService {
     public DonationDto saveDonation(DonationDto donationDto) {
         Donation donation = new Donation();
         if (donationDto.getId() != null) {
-            donation = donationRepository.findById(donationDto.getId()).get();
-            donation.setDonationInfo(donationDto.getQuantity(), donationDto.getCategories(), donationDto.getInstitution());
-            donation.setDonationAddress(donationDto.getStreet(), donationDto.getCity(), donationDto.getZipCode());
-            donation.setPickUpData(donationDto.getPickUpDate(), donationDto.getPickUpTime(), donationDto.getPickUpComment());
-            donation = donationRepository.save(donation);
+            Optional<Donation> donationOptional = donationRepository.findById(donationDto.getId());
+            if (donationOptional.isPresent()) {
+                donation = donationOptional.get();
+                donation.setDonationInfo(donationDto.getQuantity(), donationDto.getCategories(), donationDto.getInstitution());
+                donation.setDonationAddress(donationDto.getStreet(), donationDto.getCity(), donationDto.getZipCode());
+                donation.setPickUpData(donationDto.getPickUpDate(), donationDto.getPickUpTime(), donationDto.getPickUpComment());
+                donation = donationRepository.save(donation);
+            }
         } else {
             donation.setDonationInfo(donationDto.getQuantity(), donationDto.getCategories(), donationDto.getInstitution());
             donation.setDonationAddress(donationDto.getStreet(), donationDto.getCity(), donationDto.getZipCode());
