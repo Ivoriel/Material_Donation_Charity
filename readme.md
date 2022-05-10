@@ -1,4 +1,4 @@
-Basic internet portal project.
+\Basic internet portal project.
 
 Goal of the portal is to allow passing information about donations to the relevant institutions, so they can pick them up.
 
@@ -9,3 +9,6 @@ and in what amounts) as well as pick-up address and time info.
 For that to be possible a nicely readable list of institutions was created on the main page to which donations can be made.
 
 For the donations to be placed, the donor has to register an account, therefore registration and login have been enabled.
+
+Because of the need to control certain aspects of the portal that shouldn't be available to all users roles are being
+implemented that will gate areas of the app.
