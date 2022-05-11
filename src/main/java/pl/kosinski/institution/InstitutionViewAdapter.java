@@ -17,9 +17,12 @@ public class InstitutionViewAdapter implements InstitutionService {
     public InstitutionDto saveInstitution(InstitutionDto institutionDto) {
         Institution institution = new Institution();
         if (institutionDto.getId() != null) {
-            institution = institutionRepository.findById(institutionDto.getId()).get();
-            institution.setNameAndDescription(institutionDto.getName(), institutionDto.getDescription());
-            institution = institutionRepository.save(institution);
+            Optional<Institution> institutionOptional = institutionRepository.findById(institutionDto.getId());
+            if (institutionOptional.isPresent()) {
+                institution = institutionOptional.get();
+                institution.setNameAndDescription(institutionDto.getName(), institutionDto.getDescription());
+                institution = institutionRepository.save(institution);
+            }
         } else {
             institution.setNameAndDescription(institutionDto.getName(), institutionDto.getDescription());
             institution = institutionRepository.save(institution);
