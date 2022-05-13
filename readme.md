@@ -14,3 +14,4 @@ Because of the need to control certain aspects of the portal that shouldn't be a
 implemented that will gate areas of the app.
 
 Initially implemented roles will be _Administrator_ and _User_ with _Institutional User_ following shortly after. 
+_Administrator_ will have the access to the whole portal and all possible option (superuser).
