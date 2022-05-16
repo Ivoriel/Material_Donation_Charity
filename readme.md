@@ -16,4 +16,4 @@ implemented that will gate areas of the app.
 Initially implemented roles will be _Administrator_ and _User_ with _Institutional User_ following shortly after. 
 _Administrator_ will have the access to the whole portal and all possible option (superuser).
 _User_ will be allowed to control their donations.
-
+The _Institutional user_ will be able to control their donations and their confirmed institution information.
