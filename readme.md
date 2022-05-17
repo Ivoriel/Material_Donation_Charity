@@ -18,3 +18,6 @@ _Administrator_ will have the access to the whole portal and all possible option
 _User_ will be allowed to control their donations.
 The _Institutional user_ will be able to control their donations and their confirmed institution information. 
 New functionalities will be built with the roles kept in mind.
+
+To properly gate access login and admin filters will be implemented to redirect users that are unregistered, not logged in,
+or don't have the permissions enter certain areas of the portal.
