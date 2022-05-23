@@ -20,4 +20,5 @@ The _Institutional user_ will be able to control their donations and their confi
 New functionalities will be built with the roles kept in mind.
 
 To properly gate access login and admin filters will be implemented to redirect users that are unregistered, not logged in,
-or don't have the permissions required to enter certain areas of the portal.
+or don't have the permissions required to enter certain areas of the portal. For proper supervision pages with lists of 
+users and institutions will be created with extended control options.
