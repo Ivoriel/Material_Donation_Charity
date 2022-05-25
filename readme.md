@@ -21,4 +21,6 @@ New functionalities will be built with the roles kept in mind.
 
 To properly gate access login and admin filters will be implemented to redirect users that are unregistered, not logged in,
 or don't have the permissions required to enter certain areas of the portal. For proper supervision pages with lists of 
-users and institutions will be created with extended control options.
+users and institutions will be created with extended control options. 
+
+Donation editing and control page will be created for the users as well as the institution users.
