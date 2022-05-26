@@ -23,4 +23,5 @@ To properly gate access login and admin filters will be implemented to redirect 
 or don't have the permissions required to enter certain areas of the portal. For proper supervision pages with lists of 
 users and institutions will be created with extended control options. 
 
-Dedicated donation editing and control pages will be created for the users as well as the institution users.
+Dedicated donation editing and control pages will be created for the users as well as the institution users. Control over
+customization f elements of the donation form might be granted to the institution users. 
