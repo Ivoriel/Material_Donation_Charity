@@ -26,4 +26,5 @@ users and institutions will be created with extended control options.
 Dedicated donation editing and control pages will be created for the users as well as the institution users. Control over
 customization of elements of the donation form might be granted to the institution users. Furthermore, pages for proposing
 new donation categories, which would have to be approved by the administrator might be added. This would necessitate
-creating some sort of queue to hold those requests.
+creating some sort of queue to hold those requests. Furthermore, some sort of messaging service might also be useful to
+establish means of communication via the portal.
