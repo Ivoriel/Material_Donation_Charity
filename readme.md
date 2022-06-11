@@ -31,4 +31,3 @@ establish means of communication via the portal. Those messages might be stored 
 an alternative way to store messages might be implemented if the db solution should prove too unwieldy.
 
 Donation history could be added for both users and institutions as well.
-
